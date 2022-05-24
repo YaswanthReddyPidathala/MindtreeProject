@@ -1,0 +1,47 @@
+<br><br>
+<div class="card  text-center">
+  <div class="card-header">
+    <h3 class="card-title">Search Doctor Details</h3>
+  </div> 
+ <div class="card-body">
+  <form class="form-inline mt-4">
+    <div class="form-control">
+      <label for="doctor">Choose Doctor</label>
+      <select class="form-control" [(ngModel)]="doc.name" name="name">
+        <option [value]="docs.name" *ngFor="let docs of doctor">{{docs.name}}</option>
+      </select>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <button class="btn btn-danger my-4 " type="submit" (click)="showDoctorDetails()"> search</button>
+    </div>
+  </form>
+ </div>
+</div>
+<!--  -->
+<br><br>
+<div class="card text-center">
+  <div class="card-header">
+    DOCTOR PROFILE
+  </div>
+  <div class="body" *ngIf="doc!=null">
+    <div class="card-Body">
+    <div class="table-responsive">
+      <table class="table  table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Patients Attended</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <tr>
+            <td>{{doc.name}}</td>
+            <td>{{doc.field}}</td>
+            <td>{{doc.patient_count}}</td>
+          </tr>  
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>

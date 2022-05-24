@@ -1,0 +1,49 @@
+<br><br>
+<div *ngIf="true" class="card" >
+  <div class="card-header">
+    <h3 class="card-title text-center">Patient Form</h3>
+  </div>
+    <div class="card-body">
+      
+          <form>
+            <div class="form-group">
+              <label for="">Patient Name</label>
+              <input name="name" [(ngModel)]="patient.name" required="true" type="text" class="form-control" placeholder="patient name">
+            </div>
+            <div class="form-group">
+              <label for="">Age</label>
+              <input name="age" required="true" [(ngModel)]="patient.age" type="number" class="form-control" placeholder="Enter age">
+            </div>
+            <div class="form-group">
+              <label for="">Doctor Name</label>
+              <select class="form-control" [(ngModel)]="patient.doctor_name" name="name">
+                <option *ngFor="let doctor of doctors" value="{{doctor.name}}">{{doctor.name}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <label for="">Visited Date</label>
+              <input name="field" required="true" [(ngModel)]="patient.date_of_visit" type="date" class="form-control" placeholder="Enter visited date">
+            </div>
+            
+            <div class="form-group">
+              <label for="gender">Choose Gender</label>
+              <select id="gender" class="form-control" [(ngModel)]="patient.gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+       
+            <div class="form-group">
+              <label for="">Precription</label>
+              <input name="Precription" [(ngModel)]="patient.prescription" name="prescription" required="true" type="text" class="form-control" placeholder="Enter details">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button type="submit" (click)="savePatient()" class="btn btn-primary">Create</button>
+        </div>
+
+      </div>
+  
+  
+      
